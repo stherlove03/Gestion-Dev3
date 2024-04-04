@@ -1,6 +1,7 @@
 from django.urls import path
-#from models import views
+from . import views
 
 #urlpatterns = [
- #   path('liste/', views.py),
+   ##path('', views.index),
+   #path('employe/', views.listeemploye),
 #]

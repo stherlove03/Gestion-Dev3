@@ -8,20 +8,10 @@
 from django.db import models
 
 
-class Adresseemp(models.Model):
-    adresse_id = models.AutoField(primary_key=True)
-    rue = models.CharField(max_length=100, blank=True, null=True)
-    ville = models.CharField(max_length=100, blank=True, null=True)
-    codepostal = models.CharField(max_length=10, blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'adresseemp'
-
-
 class Departement(models.Model):
-    codedept = models.CharField(primary_key=True, max_length=10)
-    nomdept = models.CharField(max_length=50, blank=True, null=True)
+    codedept = models.CharField(primary_key=True, max_length=5)
+    nomdept = models.CharField(max_length=100, blank=True, null=True)
+    descriptiondept = models.TextField(blank=True, null=True)
 
     class Meta:
         managed = False
@@ -29,14 +19,18 @@ class Departement(models.Model):
 
 
 class Employe(models.Model):
-    cin = models.CharField(primary_key=True, max_length=10)
-    nomemp = models.CharField(max_length=50, blank=True, null=True)
-    prenomemp = models.CharField(max_length=50, blank=True, null=True)
+    cin = models.IntegerField(primary_key=True)
+    nomemp = models.CharField(max_length=100, blank=True, null=True)
+    prenomemp = models.CharField(max_length=100, blank=True, null=True)
     date_naissanceemp = models.DateField(blank=True, null=True)
-    sexe = models.CharField(max_length=1, blank=True, null=True)
-    telephone = models.CharField(max_length=20, blank=True, null=True)
-    email = models.CharField(max_length=100, blank=True, null=True)
-    adresseemp = models.ForeignKey(Adresseemp, models.DO_NOTHING, blank=True, null=True)
+    sexeemp = models.CharField(max_length=1, blank=True, null=True)
+    emailemp = models.CharField(max_length=100, blank=True, null=True)
+    telephoneemp = models.CharField(max_length=20, blank=True, null=True)
+    adresseemp = models.TextField(blank=True, null=True)
+    titreemp = models.CharField(max_length=100, blank=True, null=True)
+    departement = models.ForeignKey(Departement, models.DO_NOTHING, db_column='departement', blank=True, null=True)
+    salaireemp = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
+    datedebuttravail = models.DateField(blank=True, null=True)
 
     class Meta:
         managed = False

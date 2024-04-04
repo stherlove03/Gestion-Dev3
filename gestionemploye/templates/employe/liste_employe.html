@@ -47,48 +47,42 @@
           </div>
         </div>
       </nav>
-   
-      <table class="table table-success table-striped">
+      
+      <table class="table table-hover">
         <thead>
+          <tr>
+            <th scope="col">CIN</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Date de naissance</th>
+            <th scope="col">Sexe</th>
+            <th scope="col">email</th>
+            <th scope="col">Téléphone</th>
+            <th scope="col">Adresse</th>
+            <th scope="col">Poste</th>
+            <th scope="col">Département</th>
+            <th scope="col">Salaire</th>
+            <th scope="col">Date Début de travail</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for liste in listeemploye %}
             <tr>
-                <th scope="col">CIN</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Prénom</th>
-                <th scope="col">Date de naissance</th>
-                <th scope="col">Sexe</th>
-                <th scope="col">email</th>
-                <th scope="col">Téléphone</th>
-                <th scope="col" colspan="3" class="text-center">Adresse</th>
+                <th scope="row">{{liste.cin}}</th>
+                <td>{{liste.nomemp}}</td>
+                <td>{{liste.prenomemp}}</td>
+                <td>{{liste.date_naissanceemp}}</td>
+                <td>{{liste.sexeemp}}</td>
+                <td>{{liste.emailemp}}</td>
+                <td>{{liste.telephoneemp}}</td>
+                <td>{{liste.adresseemp}}</td>
+                <td>{{liste.titreemp}}</td>
+                <td>{{liste.departement.codedept}}</td>
+                <td>{{liste.salaireemp}}</td>
+                <td>{{liste.datedebuttravail}}</td>
             </tr>
-            <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th>Rue</th>
-                <th>Ville</th>
-                <th>Code postal</th>
-            </tr>
-          </thead>
-          <tbody>
-          {% for liste in listeemploye %}
-                <tr>
-                    <th scope="row">{{liste.cin}}</th>
-                    <td>{{liste.nomemp}}</td>
-                    <td>{{liste.prenomemp}}</td>
-                    <td>{{liste.date_naissanceemp}}</td>
-                    <td>{{liste.sexe}}</td>
-                    <td>{{liste.email}}</td>
-                    <td>{{liste.telephone}}</td>
-                    <td>{{liste.adresseemp.rue}}</td>
-                    <td>{{liste.adresseemp.ville}}</td>
-                    <td>{{liste.adresseemp.codepostal}}</td>
-                </tr>
-          {% endfor %}
-          </tbody>
+      {% endfor %}
+        </tbody>
       </table>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
