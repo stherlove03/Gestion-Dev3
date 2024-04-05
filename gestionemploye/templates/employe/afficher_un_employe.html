@@ -1,0 +1,38 @@
+{% extends 'employe/base.html' %}
+
+{%block content%}
+    <div class="container mt-3">
+        <!-- Example row of columns -->
+        <div class="row">        
+            <div class="col-md-4">
+                <h2>{{ employe.nom}} {{employe.prenom}}</h2>
+                <ul>
+                    <li> CIN: {{ employe.cin }} </li>
+                    <li>Nom: {{ employe.nom }} </li>
+                    <li>Prenom: {{ employe.prenom}} </li>
+                    <li>Date de naissance: {{ employe.date_naissance }} </li>
+                    <li>Sexe: {{ employe.sexe }} </li>
+                    <li>Email: {{ employe.email}} </li>
+                    <li>Téléphone: {{ employe.telephone }} </li>
+                    <li>Adresse: {{ employe.adresse }} </li>
+                    <li>Poste: {{ employe.titre }} </li>
+                    <li>Departement: {{ employe.departement }} </li>
+                    <li>Salaire: {{ employe.salaire}} </li>
+                    <li>Date début de travail: {{ employe.date_debut_travail}} </li>
+                    
+                </ul>
+                <span class="">
+                    <a class="btn btn-outline-secondary btn-sm" href="{% url 'liste-employe' %}">Back</a>
+                </span>
+                <span class="">
+                    <a class="btn btn-outline-info btn-sm" href="{% url 'modifier-employe' employe.cin %}">Update</a>
+                </span>
+                <span class="">
+                    <a class="btn btn-outline-danger btn-sm" href="{% url 'supprimer-employe' employe.cin %}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet employe')">Supprimer</a>
+                </span>
+            </div>
+        </div>
+        <hr>
+      </div > 
+      
+{% endblock content %}

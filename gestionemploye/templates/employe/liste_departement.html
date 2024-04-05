@@ -1,0 +1,29 @@
+{% extends 'employe/base.html' %}
+
+{% block content %}
+<div class="display-6 py-4 text-center"><h1>Liste des départements</h1></div>
+<div class="container">
+ 
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Code</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Description</th>
+            </tr>
+        </thead>
+        <tbody>
+    
+        {% for liste in departement %}
+            <tr>
+            <th scope="row"><a href="{% url 'un-departement' liste.code %}" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">{{ liste.code}}</a></th>
+            <td>{{ liste.nom }}</td>
+            <td>{{ liste.description }}</td>
+            </tr>
+            {% endfor %}
+    
+        </tbody>
+    </table>
+</div>
+{% endblock content %}
+

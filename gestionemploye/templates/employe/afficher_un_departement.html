@@ -1,0 +1,27 @@
+{% extends 'employe/base.html' %}
+
+{%block content%}
+    <div class="container mt-3">
+        <!-- Example row of columns -->
+        <div class="row">        
+            <div class="col-md-4">
+                <h2>{{ departement.nom }}</h2>
+                <ul>
+                    <li>Code: {{ departement.code}} </li>
+                    <li>Description: {{departement.description }} </li>
+                    
+                </ul>
+                <span class="">
+                    <a class="btn btn-outline-secondary btn-sm" href="{% url 'liste-departement' %}">Back</a>
+                </span>
+                <span class="">
+                    <a class="btn btn-outline-info btn-sm" href="{% url 'modifier-departement' departement.code %}">Update</a>
+                </span>
+                <span class="">
+                    <a class="btn btn-outline-danger btn-sm" href="{% url 'supprimer-departement' departement.code %}" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet employe')">Supprimer</a>
+                </span>
+            </div>
+        </div>
+        <hr>
+      </div > 
+{% endblock content%}
