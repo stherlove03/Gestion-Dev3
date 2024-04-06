@@ -1,39 +1,83 @@
 {% extends 'employe/base.html' %}
 
 {% block content %}
+
 <main role="main">
-  <!-- Main jumbotron for a primary marketing message or call to action -->
   <div class="jumbotron">
     <div class="container">
-      <h1 class="display-3">Hello, world!</h1>
-      <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+      <h1 class="display-3 mt-3">Gestion des employés et des départements</h1>
+      <p>Le projet consiste en une application web de gestion des employés et des départements au sein d'une organisation. L'objectif principal est de fournir une plateforme centralisée permettant aux administrateurs de gérer facilement les informations sur les employés et les départements, y compris leur ajout, leur modification et leur suppression</p>
     </div>
   </div>
-
+  <br>
+  <hr>
+  <br>
+  <div class="container">
+    <h3 class="text-center">L'application comprend plusieurs fonctionnalités clés, notamment :</h3>
+    <div class="row g-2">
+      <div class="col-6">
+        <div class="p-3"><p><b>Gestion des Employés : </b>Permet aux administrateurs d'ajouter de nouveaux employés, de mettre à jour leurs informations telles que leur nom, prénom, date de naissance, sexe, adresse email, numéro de téléphone, adresse, poste, département, salaire, date de début de travail, etc. Les employés peuvent être consultés, modifiés ou supprimés individuellement.</p></div>
+      </div>
+      <div class="col-6">
+        <div class="p-3"><p><b>Gestion des Départements :  </b> Permet aux administrateurs d'ajouter de nouveaux départements, de définir leur nom, leur code et leur description. Les départements peuvent également être consultés, modifiés ou supprimés individuellement.</p></div>
+      </div>
+      <div class="col-6">
+        <div class="p-3"><p><b>Autorisations et Contrôles d'Accès :</b> Les autorisations sont configurées pour permettre uniquement aux administrateurs d'accéder aux fonctionnalités de gestion des employés et des départements. Les utilisateurs standard ont un accès restreint et ne peuvent pas effectuer de modifications importantes.</p></div>
+      </div>
+      <div class="col-6">
+        <div class="p-3"><p><b>Interface d'Administration :</b> Les administrateurs ont accès à une interface d'administration dédiée qui leur permet de gérer tous les aspects de l'application, y compris les utilisateurs, les groupes, les autorisations, etc.</p></div>
+      </div>
+    </div>
+  </div>
+  <hr>
   <div class="container">
     <!-- Example row of columns -->
     <div class="row">
-      <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      <div class="card text-white bg-secondary m-3 " style="max-width: 20rem;">
+        <div class="card-header">Tous les employés</div>
+        <div class="card-body">
+          <h4 class="card-title">Gestion des employés</h4>
+          <p class="card-text">Consultez la liste complète de tous les employés enregistrés dans notre système.</p>
+          <p><a class="btn btn-light" href="{% url 'liste-employe'%}" role="button">Voir les employés &raquo;</a></p>
+        </div>
       </div>
-      <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      <div class="card text-white bg-secondary m-3" style="max-width: 20rem;">
+        <div class="card-header">Tous les départements</div>
+        <div class="card-body">
+          <h4 class="card-title">Gestion des départements</h4>
+          <p class="card-text">Explorez la liste complète de tous les départements disponibles dans notre organisation.</p>
+          <p><a class="btn btn-light" href="{% url 'liste-departement'%}" role="button">Voir les départements &raquo;</a></p>
+        </div>
       </div>
-      <div class="col-md-4">
-        <h2>Heading</h2>
-        <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+      <div class="card text-white bg-secondary m-3" style="max-width: 20rem;">
+        <div class="card-header">Ajouter un employé</div>
+        <div class="card-body">
+          <h4 class="card-title">Nouvel employé</h4>
+          <p class="card-text">Ajoutez un nouvel employé à notre base de données.</p>
+          <p><a class="btn btn-light" href="{% url 'ajouter-employe'%}" role="button">Ajouter un employé &raquo;</a></p>
+        </div>
+      </div>
+      <div class="card text-white bg-secondary m-3" style="max-width: 20rem;">
+        <div class="card-header">Ajouter un département</div>
+        <div class="card-body">
+          <h4 class="card-title">Nouveau département</h4>
+          <p class="card-text">Créez un nouveau département au sein de notre organisation.</p>
+          <p><a class="btn btn-light" href="{% url 'ajouter-departement'%}" role="button">Ajouter un département &raquo;</a></p>
+        </div>
+      </div>
+      <div class="card text-white bg-secondary m-3" style="max-width: 20rem;">
+        <div class="card-header">Admin</div>
+        <div class="card-body">
+          <h4 class="card-title">Interface administrateur</h4>
+          <p class="card-text">Accéder à l'interface administrateur pour la gestion des employés et départements.</p>
+          <p><a class="btn btn-light" href="http://127.0.0.1:8000/admin/login/?next=/admin/" role="button">Admin &raquo;</a></p>
+        </div>
       </div>
     </div>
 
     <hr>
 
-  </div> <!-- /container -->
+  </div> 
 
 </main>
 

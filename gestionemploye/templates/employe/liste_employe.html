@@ -1,42 +1,44 @@
 {% extends 'employe/base.html' %}
 
 {% block content %}
-      <div class="display-6 py-4 text-center"><h1>Liste des employés</h1></div>
-      <table class="table table-hover ">
-        <thead>
-          <tr>
-            <th scope="col">CIN</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Prénom</th>
-            <th scope="col">Date de naissance</th>
-            <th scope="col">Sexe</th>
-            <th scope="col">email</th>
-            <th scope="col">Téléphone</th>
-            <th scope="col">Adresse</th>
-            <th scope="col">Poste</th>
-            <th scope="col">Département</th>
-            <th scope="col">Salaire</th>
-            <th scope="col">Date Début de travail</th>
-          </tr>
-        </thead>
-        <tbody>
-        {% for liste in employe %}
-            <tr>
-                <th scope="row">{{liste.cin}}</th>
-                <td><a href="{% url 'un-employe' liste.cin %}" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">{{liste.nom}}</a></td>
-                <td><a href="{% url 'un-employe' liste.cin %}" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">{{liste.prenom}}</a></td>
-                <td>{{liste.date_naissance}}</td>
-                <td>{{liste.sexee}}</td>
-                <td>{{liste.email}}</td>
-                <td>{{liste.telephone}}</td>
-                <td>{{liste.adresse}}</td>
-                <td>{{liste.titre}}</td>
-                <td>{{liste.departement}}</td>
-                <td>{{liste.salaire}}</td>
-                <td>{{liste.date_debut_travail}}</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-      </table>
+      <div class="container-fluid">
+        <div class="display-6 py-4 text-center"><h1>Liste des employés</h1></div>
+        <table class="table table-hover ">
+            <thead>
+              <tr>
+                <th scope="col">CIN</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Date de naissance</th>
+                <th scope="col">Sexe</th>
+                <th scope="col">email</th>
+                <th scope="col">Téléphone</th>
+                <th scope="col">Adresse</th>
+                <th scope="col">Poste</th>
+                <th scope="col">Département</th>
+                <th scope="col">Salaire</th>
+                <th scope="col">Date Début de travail</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for liste in employe %}
+                <tr>
+                    <th scope="row">{{liste.cin}}</th>
+                    <td><a href="{% url 'un-employe' liste.cin %}" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">{{liste.nom}}</a></td>
+                    <td><a href="{% url 'un-employe' liste.cin %}" class="link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">{{liste.prenom}}</a></td>
+                    <td>{{liste.date_naissance}}</td>
+                    <td>{{liste.sexe}}</td>
+                    <td>{{liste.email}}</td>
+                    <td>{{liste.telephone}}</td>
+                    <td>{{liste.adresse}}</td>
+                    <td>{{liste.titre}}</td>
+                    <td>{{liste.departement}}</td>
+                    <td>{{liste.salaire}}</td>
+                    <td>{{liste.date_debut_travail}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+      </div>
 
 {% endblock content %}

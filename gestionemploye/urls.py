@@ -5,7 +5,6 @@ from django.urls import path
 urlpatterns = [
    # Pour la page d'Accueil
    path('', views.home, name='home'),
-
    # Pour Afficher la liste des employes et departements
    path('liste_employe/', views.listeemploye, name='liste-employe'),
    path('liste_departement/', views.listedepartement, name='liste-departement'),
