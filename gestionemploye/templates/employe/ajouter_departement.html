@@ -1,14 +1,14 @@
 {% extends 'employe/base.html' %}
 {%block content%}
     <div class="container">
-        <div class="display-6 py-5 text-center" style="margin: auto; width: 50%;"><h1>Ajouter un département</h1></div>
+        <div class="display-6 py-4 text-center" style="margin: auto; width: 50%;"><h1>Ajouter un département</h1></div>
         {% if submitted %}
             Your Information submitted successfully
         {% else %}
             <form action="" method="POST">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <input type="submit" value="Submit"  style="margin-bottom: 480px;">
+                <input type="submit" value="Submit"  style="margin-bottom: 500px;" class="btn btn-secondary">
             </form>
         {% endif %}
       </div>

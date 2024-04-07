@@ -15,7 +15,7 @@ class Departement(models.Model):
 
 
 class Employe(models.Model):
-    cin = models.IntegerField(primary_key=True)
+    cin = models.BigIntegerField(primary_key=True)
     nom = models.CharField(max_length=100, blank=True, null=True)
     prenom = models.CharField(max_length=100, blank=True, null=True)
     date_naissance = models.DateField(blank=True, null=True)
